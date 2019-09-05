@@ -33,9 +33,8 @@ func (c *WholeTableDynamoCleaner) CleanTable(tableName string) error {
 	if err != nil {
 		if awsError, ok := err.(awserr.Error); ok && awsError.Code() != dynamodb.ErrCodeResourceNotFoundException || !ok {
 			return errors.Wrapf(err, "migrate: cannot delete table '%s'", tableName)
-		} else {
-			tableDeleted = false
 		}
+		tableDeleted = false
 	}
 
 	if tableDeleted {
