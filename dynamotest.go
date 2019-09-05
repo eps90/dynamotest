@@ -18,8 +18,8 @@ func NewDefaultDynamoTester(dynamoSvc *dynamodb.DynamoDB, migrationsPath string,
 	dynamoTester := DynamoTester{
 		dynamoDbSvc:       dynamoSvc,
 		Migrator:          NewDefaultMigrator(dynamoSvc, migrationsPath),
-		FixturesLoader:    NewJsonFilesystemReader(fixturesPath),
-		FixturesDecoder:   NewJsonFixturesDecoder(),
+		FixturesLoader:    NewJSONFilesystemReader(fixturesPath),
+		FixturesDecoder:   NewJSONFixturesDecoder(),
 		TableNameResolver: NewMemoizedTableNameResolver(NewTimestampTableNameResolver(new(RealClock))),
 		Cleaner:           NewWholeTableDynamoCleaner(dynamoSvc),
 	}

@@ -7,7 +7,7 @@ import (
 )
 
 func TestJsonFilesystemLoader(t *testing.T) {
-	loader := dynamotest.NewJsonFilesystemReader("test_resources/")
+	loader := dynamotest.NewJSONFilesystemReader("test_resources/")
 	expectedResult := [][]byte{
 		[]byte(`{
   "Name": "This is a Test A file"
@@ -24,7 +24,7 @@ func TestJsonFilesystemLoader(t *testing.T) {
 }
 
 func TestJsonFilesystemLoaderWithNames(t *testing.T) {
-	loader := dynamotest.NewJsonFilesystemReader("test_resources/")
+	loader := dynamotest.NewJSONFilesystemReader("test_resources/")
 	names := []string{"a", "nested/c"}
 	expectedResult := [][]byte{
 		[]byte(`{

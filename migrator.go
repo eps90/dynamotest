@@ -16,8 +16,8 @@ type Migrator struct {
 
 func NewDefaultMigrator(dynamoSvc *dynamodb.DynamoDB, migrationsPath string) *Migrator {
 	return &Migrator{
-		MigrationsLoader:  NewJsonFilesystemReader(migrationsPath),
-		MigrationsDecoder: new(JsonMigrationDecoder),
+		MigrationsLoader:  NewJSONFilesystemReader(migrationsPath),
+		MigrationsDecoder: new(JSONMigrationDecoder),
 		TableNameResolver: new(DefaultTableNameResolver),
 		Creator:           NewDefaultTableCreator(dynamoSvc),
 	}
@@ -33,7 +33,7 @@ func (m *Migrator) MigrateTables(tableNames ...string) error {
 		if tableDefinition, ok := m.definitions[tableName]; ok {
 			err := m.Creator.CreateTable(tableDefinition)
 			if err != nil {
-				return errors.Wrapf(err, "migrate: cannot crete table %s(%s)", tableName, *tableDefinition.TableName)
+				return errors.Wrapf(err, "migrate: cannot create table %s(%s)", tableName, *tableDefinition.TableName)
 			}
 		}
 	}

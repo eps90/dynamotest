@@ -10,7 +10,7 @@ import (
 )
 
 func TestJsonMigrationDecoder(t *testing.T) {
-	decoder := new(dynamotest.JsonMigrationDecoder)
+	decoder := new(dynamotest.JSONMigrationDecoder)
 	input := createSampleMigrationBytes()
 	expectedOutput := createSampleCreateTableInput()
 	actualOutput, err := decoder.Decode(input)
@@ -20,7 +20,7 @@ func TestJsonMigrationDecoder(t *testing.T) {
 }
 
 func TestJsonMigrationDecoderInvalidInput(t *testing.T) {
-	decoder := new(dynamotest.JsonMigrationDecoder)
+	decoder := new(dynamotest.JSONMigrationDecoder)
 	input := createSampleInvalidMigrationBytes()
 	_, err := decoder.Decode(input)
 
@@ -28,7 +28,7 @@ func TestJsonMigrationDecoderInvalidInput(t *testing.T) {
 }
 
 func TestJsonFixturesDecoder(t *testing.T) {
-	decoder := dynamotest.NewJsonFixturesDecoder()
+	decoder := dynamotest.NewJSONFixturesDecoder()
 	input := createSampleFixturesBytes()
 	expected := createSampleWriteRequestMap()
 	actual, err := decoder.Decode(input)

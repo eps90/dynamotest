@@ -12,11 +12,11 @@ type MigrationDecoder interface {
 	Decode(input []byte) (*dynamodb.CreateTableInput, error)
 }
 
-// JsonMigrationDecoder decodes JSON migrations into DynamoDB's CreateTableInput
-type JsonMigrationDecoder struct {
+// JSONMigrationDecoder decodes JSON migrations into DynamoDB's CreateTableInput
+type JSONMigrationDecoder struct {
 }
 
-func (*JsonMigrationDecoder) Decode(input []byte) (*dynamodb.CreateTableInput, error) {
+func (*JSONMigrationDecoder) Decode(input []byte) (*dynamodb.CreateTableInput, error) {
 	var createTable dynamodb.CreateTableInput
 	err := json.Unmarshal(input, &createTable)
 	if err != nil {
@@ -39,14 +39,14 @@ type FixturesDecoder interface {
 	Decode(input [][]byte) (TableWriteRequests, error)
 }
 
-type JsonFixturesDecoder struct {
+type JSONFixturesDecoder struct {
 }
 
-func NewJsonFixturesDecoder() *JsonFixturesDecoder {
-	return &JsonFixturesDecoder{}
+func NewJSONFixturesDecoder() *JSONFixturesDecoder {
+	return &JSONFixturesDecoder{}
 }
 
-func (*JsonFixturesDecoder) Decode(input [][]byte) (TableWriteRequests, error) {
+func (*JSONFixturesDecoder) Decode(input [][]byte) (TableWriteRequests, error) {
 	writeRequests := make(TableWriteRequests)
 	for _, fixtureContents := range input {
 		var fx fixture
