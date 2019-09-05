@@ -2,9 +2,10 @@ package dynamotest
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
 	"io/ioutil"
 	"path/filepath"
+
+	"github.com/pkg/errors"
 )
 
 // DefinitionsLoader defines a struct able to read contents of tables definitions

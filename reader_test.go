@@ -1,9 +1,10 @@
 package dynamotest_test
 
 import (
+	"testing"
+
 	"github.com/eps90/dynamotest"
 	"github.com/stretchr/testify/require"
-	"testing"
 )
 
 func TestJsonFilesystemLoader(t *testing.T) {

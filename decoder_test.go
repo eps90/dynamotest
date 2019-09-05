@@ -1,12 +1,13 @@
 package dynamotest_test
 
 import (
+	"testing"
+
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/eps90/dynamotest"
 	"github.com/stretchr/testify/require"
-	"testing"
 )
 
 func TestJsonMigrationDecoder(t *testing.T) {

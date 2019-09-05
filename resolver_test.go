@@ -1,10 +1,11 @@
 package dynamotest_test
 
 import (
-	"github.com/eps90/dynamotest"
-	"github.com/stretchr/testify/require"
 	"testing"
 	"time"
+
+	"github.com/eps90/dynamotest"
+	"github.com/stretchr/testify/require"
 )
 
 func TestDefaultTableNameResolver(t *testing.T) {

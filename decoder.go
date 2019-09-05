@@ -2,6 +2,7 @@ package dynamotest
 
 import (
 	"encoding/json"
+
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/pkg/errors"
