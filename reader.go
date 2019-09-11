@@ -19,6 +19,10 @@ type FilesystemDirectoryLoader struct {
 	extension string
 }
 
+func NewFilesystemDirectoryLoader(dir string, extension string) *FilesystemDirectoryLoader {
+	return &FilesystemDirectoryLoader{dir: dir, extension: extension}
+}
+
 // NewJSONFilesystemReader creates FilesystemDirectoryLoader instance which reads JSON files
 func NewJSONFilesystemReader(dir string) *FilesystemDirectoryLoader {
 	return &FilesystemDirectoryLoader{dir: dir, extension: "json"}
