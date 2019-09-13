@@ -1,3 +1,6 @@
+PROJECT IS AN EXPERIMENT UNDER DEVELOPMENT, API MAY CHANGE ANYTIME. USE IT ON YOUR OWN RISK.
+===
+
 # Dynamotest
 
 **Dynamotest** is my first side project written for my own requirements to help me easily run integration tests **in parallel**.
@@ -7,6 +10,17 @@ on it selectively by choosing **fixtures files to run**.
 Project's is **still under development** so you use it on your own risk. 
 Feel free to discuss on new features but please take a look at issues list first to check if it's something I planned.
 I'm open to any discussion.   
+
+## Table of contents
+
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+    * [What happens under the hood?](#what-happens-under-the-hood)
+* [Configuring and extending](#configuring-and-extending)
+     * [Loading migration and fixtures files](#loading-migration-and-fixtures-files)                                                         
+     * [Loading particular fixtures](#loading-particular-fixtures)
+     * [Resolving table names](#resolving-table-names)
 
 ## Requirements 
 I started developing it in **Go 1.11**, currently I'm using **Go 1.12** and still works fine. 
