@@ -209,14 +209,14 @@ From things I know **for sure** they have to be done:
 - [ ] Complete comment-based documentation to generate nice online godocs. That includes: 
     - [ ] Comments for exported types and functions
     - [ ] Examples, especially for reusable and replaceable parts  
-    - [ ] Testing instructions
-- [ ] Integrate with a CI and code quality tools
+- [ ] Add testing instructions
 - [ ] Add integration tests against local DynamoDB
+- [ ] Integrate with a CI and code quality tools
 - [ ] Add license
 - [ ] Create a Makefile for the project with most repeating actions
 - [ ] Drop `pkg/errors` package in favor of `xerrors` or built-in `errors` package
-- [ ] Run operations concurrently (performance; may affect API)
 
 Also I'm considering few things:
 - [ ] Separate things to separate packages (BC)
 - [ ] Extract _migration_ and _fixtures_ related things into separate repositories (BC)
+- [ ] Run operations concurrently (performance; may affect API)
