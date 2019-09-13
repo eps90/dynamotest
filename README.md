@@ -3,13 +3,15 @@ PROJECT IS AN EXPERIMENT UNDER DEVELOPMENT, API MAY CHANGE ANYTIME. USE IT ON YO
 
 # Dynamotest
 
-**Dynamotest** is my first side project written for my own requirements to help me easily run integration tests **in parallel**.
+**Dynamotest** is my first side project written for my own needs to help me easily run integration tests **in parallel**.
 Every new instance creates a table dedicated for a test case according to **migrations definitions** and run fixtures 
 on it selectively by choosing **fixtures files to run**. 
 
 Project's is **still under development** so you use it on your own risk. 
 Feel free to discuss on new features but please take a look at issues list first to check if it's something I planned.
-I'm open to any discussion.   
+I'm open to any discussion.
+
+Feel free to check [TODO List](#todos-and-other-plans) to check what are nearest things to do
 
 ## Table of contents
 
@@ -21,6 +23,7 @@ I'm open to any discussion.
      * [Loading migration and fixtures files](#loading-migration-and-fixtures-files)                                                         
      * [Loading particular fixtures](#loading-particular-fixtures)
      * [Resolving table names](#resolving-table-names)
+* [TODOs and other plans](#todos-and-other-plans)
 
 ## Requirements 
 I started developing it in **Go 1.11**, currently I'm using **Go 1.12** and still works fine. 
@@ -197,3 +200,23 @@ dynamoTester.TableNameResolver = &MyCustomTableNameResolver{}
 * `RandomTableNameResolver` which appends random string (other than timestamp) to input table name
 
 Feel free to take a look at API docs for more.
+
+## TODOs and other plans
+There are couple of things to be done and I'm completely aware of it. I exported this lib to make it usable in couple of projects already.
+
+From things I know **for sure** they have to be done:
+
+- [ ] Complete comment-based documentation to generate nice online godocs. That includes: 
+    - [ ] Comments for exported types and functions
+    - [ ] Examples, especially for reusable and replaceable parts  
+    - [ ] Testing instructions
+- [ ] Integrate with a CI and code quality tools
+- [ ] Add integration tests against local DynamoDB
+- [ ] Add license
+- [ ] Create a Makefile for the project with most repeating actions
+- [ ] Drop `pkg/errors` package in favor of `xerrors` or built-in `errors` package
+- [ ] Run operations concurrently (performance; may affect API)
+
+Also I'm considering few things:
+- [ ] Separate things to separate packages (BC)
+- [ ] Extract _migration_ and _fixtures_ related things into separate repositories (BC)
