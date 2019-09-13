@@ -35,8 +35,13 @@ Also, I'm using **go modules** here.
 go get -u github.com/eps90/dynamotest
 ```
 
-With Go 1.11 or later you can use the following, optionally appending the version number:
+With Go 1.11 or later you can use the following:
 
+```bash
+GO111MODULE=on go get github.com/eps90/dynamotest
+```
+
+Optionally, you can add the version number
 ```bash
 GO111MODULE=on go get github.com/eps90/dynamotest@v0.0.1
 ```
