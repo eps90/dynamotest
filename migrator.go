@@ -29,6 +29,10 @@ func (m *Migrator) MigrateTables(tableNames ...string) error {
 		return errors.Wrap(err, "migrate: cannot load migration definitions")
 	}
 
+	if len(tableNames) == 0 {
+		tableNames = m.prepareTableNames()
+	}
+
 	for _, tableName := range tableNames {
 		if tableDefinition, ok := m.definitions[tableName]; ok {
 			err := m.Creator.CreateTable(tableDefinition)
@@ -67,4 +71,13 @@ func (m *Migrator) loadDefinitions() error {
 	}
 
 	return nil
+}
+
+func (m *Migrator) prepareTableNames() []string {
+	result := make([]string, len(m.definitions))
+	for tableName := range m.definitions {
+		result = append(result, tableName)
+	}
+
+	return result
 }
