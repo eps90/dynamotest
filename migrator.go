@@ -74,7 +74,7 @@ func (m *Migrator) loadDefinitions() error {
 }
 
 func (m *Migrator) prepareTableNames() []string {
-	result := make([]string, len(m.definitions))
+	result := make([]string, 0)
 	for tableName := range m.definitions {
 		result = append(result, tableName)
 	}
